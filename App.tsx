@@ -16,6 +16,7 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Splash from './src/screens/auth/Splash';
+import SignUp from './src/screens/auth/Signup';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -31,7 +32,7 @@ function App(): React.JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <View style={styles.sectionContainer}>
-        <Splash />
+        <SignUp />
       </View>
     </SafeAreaView>
   );
