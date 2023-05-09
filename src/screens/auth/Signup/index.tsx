@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import AuthHeader from '../../../components/AuthHeader';
 import Button from '../../../components/Button';
 import Checkbox from '../../../components/Checkbox';
@@ -12,7 +12,7 @@ import {styles} from './styles';
 export default function SignUp(): React.JSX.Element {
   const [checked, setChecked] = useState(false);
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <AuthHeader onPress={() => console.log('Auth press')} title="Sign up" />
       <Input label="Name" placeholder="John Doe" />
       <Input label="Email" placeholder="email@example.com" />
@@ -31,6 +31,6 @@ export default function SignUp(): React.JSX.Element {
         Already have an account?{' '}
         <Text style={styles.agreeTextBold}>Sign in</Text>
       </Text>
-    </View>
+    </ScrollView>
   );
 }
