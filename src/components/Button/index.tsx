@@ -19,7 +19,7 @@ export default function Button({
 }
 
 interface MyProps {
-  style: {[key: string]: any};
+  style?: {[key: string]: any};
   title: string;
   onPress: () => void;
 }

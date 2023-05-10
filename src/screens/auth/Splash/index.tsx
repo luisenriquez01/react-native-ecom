@@ -1,9 +1,16 @@
 import React from 'react';
 import {Image, Pressable, Text, View} from 'react-native';
-import {styles} from './styles';
 import Button from '../../../components/Button';
+import withSafeAreaLayout from '../../../hoc/withSafeAreaLayout';
 
-export default function Splash(): React.JSX.Element {
+import {styles} from './styles';
+
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import type {RootStackParamList} from '../../../util/types';
+
+type Props = NativeStackScreenProps<RootStackParamList, 'Splash'>;
+
+function Splash({navigation}: Props): React.JSX.Element {
   return (
     <View style={styles.container}>
       <Image
@@ -16,10 +23,16 @@ export default function Splash(): React.JSX.Element {
         <Text style={[styles.title, styles.innerTitle]}>All you need</Text>
         <Text style={styles.title}>here!</Text>
       </View>
-      <Button onPress={() => console.log('Pressed!')} title="Sign up" />
+      <Button onPress={() => navigation.navigate('Signup')} title="Sign up" />
       <Pressable hitSlop={20}>
-        <Text style={styles.footerText}>Sign in</Text>
+        <Text
+          onPress={() => navigation.navigate('Signin')}
+          style={styles.footerText}>
+          Sign in
+        </Text>
       </Pressable>
     </View>
   );
 }
+
+export default withSafeAreaLayout(Splash);
