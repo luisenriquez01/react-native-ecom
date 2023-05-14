@@ -3,10 +3,10 @@ import {StatusBar, useColorScheme} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-export default function withSafeAreaLayout(
-  Component: React.FC<any>,
-): (props: any) => React.JSX.Element {
-  return function WrappedComponent(props: any) {
+export default function withSafeAreaLayout<T extends object>(
+  Component: React.ComponentType<T>,
+): (props: T) => React.JSX.Element {
+  return function WrappedComponent(props: T) {
     const isDarkMode = useColorScheme() === 'dark';
 
     const backgroundStyle = {
